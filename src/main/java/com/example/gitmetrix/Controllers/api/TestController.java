@@ -1,18 +1,18 @@
 package com.example.gitmetrix.Controllers.api;
 
-import org.springframework.web.bind.annotation.*;
-
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/test")
 public class TestController {
-
   @GetMapping
-  public String test(@RequestParam String command) {
+  public String test(@RequestParam final String command) {
     ProcessBuilder processBuilder = new ProcessBuilder();
 
     // -- Windows --
@@ -40,8 +40,6 @@ public class TestController {
       if (exitVal == 0) {
         System.out.println("Success!");
         System.out.println(output);
-      } else {
-        //abnormal...
       }
 
     } catch (IOException e) {
