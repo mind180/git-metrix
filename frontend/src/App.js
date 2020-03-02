@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   hello = () => {
-    fetch("test?command=git status")
+    fetch("git?param=status")
         .then(response => response.text())
         .then(message => {
           this.setState({message: message});
